@@ -27,8 +27,8 @@ def log_plot(well, df, depth_mdt, depth_mdt_actual, column_depth, column_GR, col
 
     ax[0].minorticks_on()
     ax[0].grid(which='major', linestyle='-', linewidth='1', color='brown')
-    ax[0].grid(which='major', linestyle='-', linewidth='1.5', color='black')
+    ax[0].grid(which='major', linestyle=':', linewidth='1.5', color='black')
 
-    ax[0].minorticks_on()
-    ax[0].grid(which='major', linestyle='-', linewidth='1', color='brown')
-    ax[0].grid(which='major', linestyle='-', linewidth='1.5', color='black')
+    ax[1].minorticks_on()
+    ax[1].grid(which='major', linestyle='-', linewidth='1', color='brown')
+    ax[1].grid(which='major', linestyle=':', linewidth='1.5', color='black')
