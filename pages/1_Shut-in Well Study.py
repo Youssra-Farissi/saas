@@ -18,7 +18,7 @@ def main():
         temp_df1=log.df()
         temp_df1=temp_df1.reset_index()
         temp_df1.columns
-        temp_df1.rename(columns={'DEPT:DEPTH','SGRC':'GR','TNPL':'NPHI','PEF':'PE','HSI':'CALI','SBD2':'RHOB','PRES2M16IN':'RS','PRES500K48IN':'RT','STOP':'ROP',
+        temp_df1.rename(columns={'DEPT':'DEPTH','SGRC':'GR','TNPL':'NPHI','PEF':'PE','HSI':'CALI','SBD2':'RHOB','PRES2M16IN':'RS','PRES500K48IN':'RT','STOP':'ROP',
         'SFXE':'FEXP'},inplace=true)
         temp_df1=temp_df1.dropna()
        
