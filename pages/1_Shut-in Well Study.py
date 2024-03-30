@@ -1,19 +1,19 @@
 import streamlit as st
+import ls  # Import the ls module if it's a custom module used for reading Excel files
 
 def main():
     st.title("Téléchargement de données")
 
     st.write("Veuillez télécharger votre fichier Excel.")
 
-    # Utilisez st.file_uploader avec le paramètre `type` pour spécifier les extensions autorisées
     data_uploader = st.file_uploader("Télécharger fichier Excel (xlsx)", type=["xlsx"])
 
     if data_uploader is not None:
-        st.success("Fichier téléchargé avec succès!")
-        data_uploader.seek(0)
         try:
-            string = data_uploader.read().decode()
-            log = ls.read(string)
+            st.success("Fichier téléchargé avec succès!")
+            data_uploader.seek(0)
+            string = data_uploader.read()  # Don't specify decode type
+            log = ls.read(string)  # Assuming ls is a module for reading Excel files
             temp_df1 = log.df()
             temp_df1 = temp_df1.reset_index()
             temp_df1.columns
@@ -29,7 +29,6 @@ def main():
             std_d = temp_df1['RHOB'].mean()
             mean_r = temp_df1['RT'].mean()
             data_df = temp_df1.copy()
-
         except Exception as e:
             st.error(f"Erreur rencontrée lors du traitement des données: {e}")
 
