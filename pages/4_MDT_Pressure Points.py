@@ -15,8 +15,7 @@ def log_plot(well, df, depth_mdt, depth_mdt_actual, column_depth, column_GR, col
 
     return fig
 
-# Remplacez "well_name" par le nom de votre puits
-well_name = "Nom du puits"
+
 
 fig1 = log_plot(well_name, temp_df1, depth_df_mdt, depth_mdt_actual_708, "DEPTH", "GR", "RT", "NPHI", "RHOB")
 

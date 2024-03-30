@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib.ticker import AutoMinorLocator
 
 def main():
     st.title("Téléchargement de données")
@@ -30,6 +32,26 @@ def main():
             data_df = temp_df1.copy()
         except Exception as e:
             st.error(f"Erreur rencontrée lors du traitement des données: {e}")
+
+    # Call log_plot function here once all data is loaded and processed
+    if 'temp_df1' in locals():  # Check if temp_df1 is defined
+        fig1 = log_plot("well_name", temp_df1, "depth_df_mdt", "depth_mdt_actual_708", "DEPTH", "GR", "RT", "NPHI", "RHOB")
+        st.text("Données de Hell avec points de collecte HDT mis en évidence")
+        st.pyplot(fig1, width=35)
+
+def log_plot(well, df, depth_mdt, depth_mdt_actual, column_depth, column_GR, column_resistivity, column_NPHI, column_RHOB):
+    fig, ax = plt.subplots(1, 3, figsize=(28, 22), dpi=55)
+    fig.suptitle(f"{well} Well Logs with Highlighted Pressure Recording Points", size=24, y=0.92)
+
+    ax[0].minorticks_on()
+    ax[0].grid(which='major', linestyle='-', linewidth=1, color='brown')
+    ax[0].grid(which='minor', linestyle=':', linewidth=1.5, color='black')
+
+    ax[1].minorticks_on()
+    ax[1].grid(which='major', linestyle='-', linewidth=1, color='brown')
+    ax[1].grid(which='minor', linestyle=':', linewidth=1.5, color='black')
+
+    return fig
 
 if __name__ == "__main__":
     main()
