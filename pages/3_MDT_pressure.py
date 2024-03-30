@@ -9,7 +9,13 @@ df1 = pd.DataFrame(data1)
 df2 = pd.DataFrame(data2)
 
 d_list = [df1, df2] 
-dis_r = spatial.distance.cdist(
-      d_list[i]['RS'].values.reshape(-1, len(d_list[i]['RS'].values)),
-      d_list[i]['RT'].values.reshape(-1, len(d_list[i]['RT'].values))
-)
+
+dis_r_list = []
+for df in d_list:
+    dis_r = spatial.distance.cdist(
+        df['RS'].values.reshape(-1, len(df['RS'].values)),
+        df['RT'].values.reshape(-1, len(df['RT'].values))
+    )
+    dis_r_list.append(dis_r)
+
+print(dis_r_list)
