@@ -36,16 +36,13 @@ def main():
     st.markdown("---")
 
     st.markdown("### Exemple de tracé interactif avec Matplotlib")
-    st.markdown("Ceci est un exemple de tracé interactif utilisant Matplotlib.")
     st.markdown("Le graphique est affiché ci-dessous :")
 
-    # Plot interactive chart with Matplotlib
     fig, ax = plt.subplots()
     ax.plot([1, 2, 3, 4], [10, 20, 25, 30])
     ax.set_xlabel('x')
     ax.set_ylabel('y')
 
-    # Display the plot inside a styled container
     st.markdown("---")
     st.markdown('<div class="plot-container">', unsafe_allow_html=True)
     st.pyplot(fig)
