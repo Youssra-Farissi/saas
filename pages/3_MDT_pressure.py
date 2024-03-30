@@ -1,5 +1,6 @@
 import scipy
 from scipy import spatial
+import pandas as pd
 
 data1 = {'RS': [1, 2, 3, 4], 'RT': [5, 6, 7, 8]}
 data2 = {'RS': [9, 10, 11, 12], 'RT': [13, 14, 15, 16]}
