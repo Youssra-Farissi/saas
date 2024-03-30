@@ -1,23 +1,23 @@
 import streamlit as st
-import pandas as pd  # Import Pandas for data manipulation
+import pandas as pd
 
 def main():
     st.title("Téléchargement de données")
 
     st.write("Veuillez télécharger votre fichier Excel.")
 
-    # Utilisez st.file_uploader avec le paramètre `type` pour spécifier les extensions autorisées
     data_uploader = st.file_uploader("Télécharger fichier Excel (xlsx)", type=["xlsx"])
 
     if data_uploader is not None:
         st.success("Fichier téléchargé avec succès!")
         data_uploader.seek(0)
         try:
-            string = data_uploader.read().decode("latin-1")  # Try decoding using 'latin-1' encoding
-            temp_df1 = pd.read_excel(string)  # Read Excel file into a DataFrame using Pandas
+            # Utiliser 'latin-1' pour décoder les données
+            string = data_uploader.read().decode("latin-1")
+            temp_df1 = pd.read_excel(string)
 
-            # Your data processing and analysis code here
-            # For example:
+            # Votre code de traitement des données ici
+            # Par exemple:
             temp_df1.rename(columns={'DEPT':'DEPTH','SGRC':'GR','TNPL':'NPHI','PEF':'PE',
                                      'HSI':'CALI','SBD2':'RHOB','PRES2M16IN':'RS','PRES500K48IN':'RT','STOP':'ROP',
                                      'SFXE':'FEXP'}, inplace=True)
