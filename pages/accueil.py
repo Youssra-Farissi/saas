@@ -9,7 +9,7 @@ def main():
 
     st.write("Welcome to PetroSaaS, the premier Software as a Service (SaaS) platform designed specifically for the oil and gas industry. PetroSaaS empowers engineers, geologists, and analysts to harness the power of data in their exploration and production endeavors. Our intuitive platform offers a suite of tools and features tailored to the unique needs of the petrochemical sector, providing users with valuable insights and actionable intelligence.")
 
-    st.image("gg.jpg", caption="Oil and Gas", use_column_width=True)
+    #st.image("gg.jpg", caption="Oil and Gas", use_column_width=True)
 
     st.write("At PetroSaaS, we understand the challenges and complexities of the oil and gas industry. That's why we've developed a comprehensive solution to streamline data analysis, visualization, and decision-making processes. Whether you're conducting reservoir modeling, evaluating drilling prospects, or optimizing production strategies, PetroSaaS equips you with the tools you need to succeed in today's dynamic energy landscape.")
 
