@@ -5,7 +5,6 @@ dis_r = spatial.distance.cdist(
     d_list[i]['RS'].values.reshape(-1, len(d_dist[i]['RS'].values))
     ,d_list[i]['RS'].values.reshape(-1, len(d_dist[i]['RS'].values))
 )
-
 data_uploader = st.file_uploader("upload file", type=('csv', 'txt', 'las'))
 if data_uploader is not None:
     data_uploader.seek(0)
