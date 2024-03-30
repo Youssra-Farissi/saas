@@ -13,7 +13,8 @@ def main():
         st.success("Fichier téléchargé avec succès!")
         data_uploader.seek(0)
         string = data_uploader.read().decode()
-
+      try:
+        string = data_uploader.read().decode("utf-8")
         log=ls.read(string)
         temp_df1=log.df()
         temp_df1=temp_df1.reset_index()
@@ -22,6 +23,7 @@ def main():
         'HSI':'CALI','SBD2':'RHOB','PRES2M16IN':'RS','PRES500K48IN':'RT','STOP':'ROP',
         'SFXE':'FEXP'},inplace=True)
         temp_df1=temp_df1.dropna()
-       
+      except UnicodeDecodeError as e:
+            st.error("Erreur de décodage Unicode: {}".format(e)) 
 if __name__ == "__main__":
     main()
