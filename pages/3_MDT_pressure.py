@@ -1,3 +1,4 @@
+import streamlit as st
 import scipy
 from scipy import spatial
 import pandas as pd
@@ -18,4 +19,8 @@ for df in d_list:
     )
     dis_r_list.append(dis_r)
 
-print(dis_r_list)
+# Afficher les résultats sur la page
+st.title("Distances entre les colonnes RS et RT")
+for i, dis_r in enumerate(dis_r_list):
+    st.write(f"DataFrame {i+1}:")
+    st.dataframe(dis_r)
