@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd  # Import Pandas for data manipulation
 
 def main():
     st.title("Téléchargement de données")
@@ -13,10 +14,10 @@ def main():
         data_uploader.seek(0)
         try:
             string = data_uploader.read().decode("latin-1")  # Try decoding using 'latin-1' encoding
-            log = ls.read(string)
-            temp_df1 = log.df()
-            temp_df1 = temp_df1.reset_index()
-            temp_df1.columns
+            temp_df1 = pd.read_excel(string)  # Read Excel file into a DataFrame using Pandas
+
+            # Your data processing and analysis code here
+            # For example:
             temp_df1.rename(columns={'DEPT':'DEPTH','SGRC':'GR','TNPL':'NPHI','PEF':'PE',
                                      'HSI':'CALI','SBD2':'RHOB','PRES2M16IN':'RS','PRES500K48IN':'RT','STOP':'ROP',
                                      'SFXE':'FEXP'}, inplace=True)
