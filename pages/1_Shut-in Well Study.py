@@ -12,7 +12,7 @@ def main():
         st.success("Fichier téléchargé avec succès!")
         data_uploader.seek(0)
         try:
-            string = data_uploader.read().decode("utf-8")
+            string = data_uploader.read().decode("latin-1")  # Try decoding using 'latin-1' encoding
             log = ls.read(string)
             temp_df1 = log.df()
             temp_df1 = temp_df1.reset_index()
