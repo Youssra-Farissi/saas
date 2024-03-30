@@ -1,6 +1,4 @@
 import streamlit as st
-import pandas as pd
-import lasio as ls
 
 def main():
     st.title("Téléchargement de données")
@@ -14,10 +12,15 @@ def main():
         # Vérifiez si un fichier a été téléchargé
         st.success("Fichier téléchargé avec succès!")
         data_uploader.seek(0)
-        # Lecture du contenu du fichier Excel en tant que DataFrame pandas
-        df = pd.read_excel(data_uploader)
-        # Afficher le DataFrame pandas
-        st.write(df)
+        string = data_uploader.read().decode()
 
+        log=ls.read(string)
+        temp_df1=log.df()
+        temp_df1=temp_df1.reset_index()
+        temp_df1.columns
+        temp_df1.rename(columns={'DEPT:DEPTH','SGRC': 'GR','TNPL':'NPHI','PEF':'PE','HSI':'CALI','SBD2':'RHOB','PRES2M16IN':'RS','PRES500K48IN':'RT','STOP':'ROP',
+        'SFXE':'FEXP'},inplace=true)
+        temp_df1=temp_df1.dropna()
+       
 if __name__ == "__main__":
     main()
