@@ -16,7 +16,6 @@ if data_uploader is not None:
     temp_df1.columns
     temp_df1.rename(columns= {'DEPT: DEPTH'}, inplace = True)
     temp_df1=temp_df1.dropna()
-
 def log_plot(well, df, depth_mdt, depth_mdt_actual, column_depth, column_GR, column_resistivity, column_NPHI, column_RHOB):
     import matplotlib.pyplot as plt
     from matplotlib.ticker import AutoMinorLocator
