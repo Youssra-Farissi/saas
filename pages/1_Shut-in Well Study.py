@@ -11,13 +11,15 @@ def main():
     if data_uploader is not None:
         # Vérifiez si un fichier a été téléchargé
         st.success("Fichier téléchargé avec succès!")
-        # Réinitialisez le tampon pour vous assurer que le fichier peut être lu correctement
         data_uploader.seek(0)
-        # Utilisez le contenu du fichier pour effectuer des opérations supplémentaires
-        # Par exemple, vous pouvez utiliser la bibliothèque pandas pour lire le fichier Excel
-        # Exemple : 
-        # df = pd.read_excel(data_uploader)
-        # st.write(df)
+        string = data_uploader.read().decode()
 
+        log=ls.read(string)
+        temp_df1=log.df()
+        temp_df1=temp_df1.reset_index()
+        temp_df1.columns
+        temp_df1.rename(columns={'DEPT:DEPTH','SGRC': 'GR','TNPL':'NPHI','PEF':'PE','SFXE':'FEXP'},inplace=true)
+        temp_df1=temp_df1.dropna()
+       
 if __name__ == "__main__":
     main()
